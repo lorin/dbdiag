@@ -62,7 +62,7 @@ def parse_operations(text : str) -> list[Operation]:
             continue
         match = re.fullmatch(RGX, line)
         if not match:
-            raise RuntimeError('Parse Failure: Line `{line}` must be of the form `actor: op key`.')
+            raise RuntimeError(f'Parse Failure: Line `{line}` must be of the form `actor: op key`.')
         opname = match.group('op')
         if opname == 'END':
             opname = None
