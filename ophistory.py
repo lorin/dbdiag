@@ -55,7 +55,7 @@ def parse_operations(text : str) -> list[Operation]:
     """
     operations = []
     TEXT = r'"[^"]+"|[a-zA-Z0-9_(){}\[\],.]+'
-    RGX = f'(?P<actor>{TEXT}) *(:|\.)? *(?P<op>{TEXT}) *(?P<key>{TEXT})? *(#.*)?'
+    RGX = f'(?P<actor>{TEXT}) *(:|\\.)? *(?P<op>{TEXT}) *(?P<key>{TEXT})? *(#.*)?'
     for line in text.splitlines():
         line = line.strip('\n')
         if not line or line.startswith('#'):
